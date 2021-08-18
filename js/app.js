@@ -61,5 +61,18 @@ function submitFrm(e) {
 
 
 function mostraralerta(msj) {
-    console.log(msj);
+    const existeError = document.querySelector('.error');
+
+    if(!existeError) {
+        const divMsj = document.createElement('div');
+        divMsj.classList.add('error');
+
+        //Mensaje de error
+        divMsj.textContent= msj;
+        frm.appendChild(divMsj);
+
+        setTimeout(() => {
+            divMsj.remove();
+        }, 3000);
+    }
 }
